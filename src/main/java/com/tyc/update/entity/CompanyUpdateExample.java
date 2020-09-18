@@ -1,4 +1,4 @@
-package com.tyc.update.mapper.entity;
+package com.tyc.update.entity;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

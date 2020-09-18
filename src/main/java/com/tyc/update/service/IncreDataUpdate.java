@@ -1,4 +1,4 @@
-package com.tyc.update.mapper.service;
+package com.tyc.update.service;
 
 import com.tyc.update.utils.MysqlConnUtils;
 
@@ -220,7 +220,7 @@ public class IncreDataUpdate {
                     "where exists(SELECT 1 FROM " + increTable + " b WHERE a.`name` = b.`name`)";
 
             //更新注册地址
-            sqls[11] = "update " + tableName + " a\n" +
+            sqls[12] = "update " + tableName + " a\n" +
                     "set a.address=(select b.reg_location\n" +
                     "               from " + increTable + " b\n" +
                     "               where b.name = a.name\n" +
@@ -229,7 +229,7 @@ public class IncreDataUpdate {
                     "where exists(SELECT 1 FROM " + increTable + " b WHERE a.`name` = b.`name`)";
 
             //更新营业开始日期
-            sqls[12] = "update " + tableName + " a\n" +
+            sqls[13] = "update " + tableName + " a\n" +
                     "set a.termstart=(select b.from_time\n" +
                     "                 from " + increTable + " b\n" +
                     "                 where b.name = a.name\n" +
@@ -238,7 +238,7 @@ public class IncreDataUpdate {
                     "where exists(SELECT 1 FROM " + increTable + " b WHERE a.`name` = b.`name`)";
 
             //更新营业结束日期
-            sqls[13] = "update " + tableName + " a\n" +
+            sqls[14] = "update " + tableName + " a\n" +
                     "set a.teamend=(select b.to_time\n" +
                     "               from " + increTable + " b\n" +
                     "               where b.name = a.name\n" +
@@ -247,7 +247,7 @@ public class IncreDataUpdate {
                     "where exists(SELECT 1 FROM " + increTable + " b WHERE a.`name` = b.`name`)";
 
             //更新组织机构代码
-            sqls[14] = "update " + tableName + " a\n" +
+            sqls[15] = "update " + tableName + " a\n" +
                     "set a.orgno=(select concat(left(b.org_number, 8), '-', right(b.org_number, 1))\n" +
                     "             from " + increTable + " b\n" +
                     "             where b.name = a.name\n" +
@@ -257,7 +257,7 @@ public class IncreDataUpdate {
                     "where exists(SELECT 1 FROM " + increTable + " b WHERE a.`name` = b.`name`)";
 
             //更新实缴资本
-            sqls[15] = "update " + tableName + " a\n" +
+            sqls[16] = "update " + tableName + " a\n" +
                     "set a.registcapi_real=(select concat(b.actual_capital_amount / 1000000, '万', b.actual_capital_currency)\n" +
                     "                       from " + increTable + " b\n" +
                     "                       where b.name = a.name\n" +
@@ -269,7 +269,7 @@ public class IncreDataUpdate {
                     "where exists(SELECT 1 FROM " + increTable + " b WHERE a.`name` = b.`name`)";
 
             //更新经纬度(保留小数掉后6位)
-            sqls[16] = "update " + tableName + " a\n" +
+            sqls[17] = "update " + tableName + " a\n" +
                     "set a.area_xy=(select concat(convert(b.lat, decimal(10, 6)), ',', convert(b.lng, decimal(10, 6)))\n" +
                     "               from " + increTable + " b\n" +
                     "               where b.name = a.name\n" +
@@ -281,7 +281,7 @@ public class IncreDataUpdate {
                     "where exists(SELECT 1 FROM " + increTable + " b WHERE a.`name` = b.`name`)";
 
             //更新area_xy_short(保留小数点后2位)
-            sqls[17] = "update " + tableName + " a\n" +
+            sqls[18] = "update " + tableName + " a\n" +
                     "set a.area_xy_short=(select concat(convert(b.lat, decimal(10, 2)), ',', convert(b.lng, decimal(10, 2)))\n" +
                     "                     from " + increTable + " b\n" +
                     "                     where b.name = a.name\n" +
@@ -293,7 +293,7 @@ public class IncreDataUpdate {
                     "where exists(SELECT 1 FROM " + increTable + " b WHERE a.`name` = b.`name`)";
 
             //更新参保人数
-            sqls[18] = "update " + tableName + " a\n" +
+            sqls[19] = "update " + tableName + " a\n" +
                     "set a.insured_people =(select b.social_security_staff_num\n" +
                     "                       from " + increTable + " b\n" +
                     "                       where b.name = a.name\n" +
@@ -302,7 +302,7 @@ public class IncreDataUpdate {
                     "where exists(SELECT 1 FROM " + increTable + " b WHERE a.`name` = b.`name`)";
 
             //更新省份字段(从另一个表中查询)
-            sqls[19] = "update " + tableName + " b\n" +
+            sqls[20] = "update " + tableName + " b\n" +
                     "set b.province=(select a.province\n" +
                     "                from area_code_true a\n" +
                     "                         left join " + increTable + " c\n" +
@@ -312,7 +312,7 @@ public class IncreDataUpdate {
                     "where exists(select 1 from " + increTable + " c where c.name = b.name)";
 
             //更新城市字段(另一个表查询)
-            sqls[20] = "update " + tableName + " b\n" +
+            sqls[21] = "update " + tableName + " b\n" +
                     "set b.city=(select a.city\n" +
                     "            from area_code_true a\n" +
                     "                     left join " + increTable + " c\n" +
@@ -322,7 +322,7 @@ public class IncreDataUpdate {
                     "where exists(select 1 from " + increTable + " c where c.name = b.name)";
 
             //更新区县字段(另一个表查询)
-            sqls[21] = "update " + tableName + " b\n" +
+            sqls[22] = "update " + tableName + " b\n" +
                     "set b.county=(select a.district\n" +
                     "              from area_code_true a\n" +
                     "                       left join " + increTable + " c\n" +
@@ -332,7 +332,7 @@ public class IncreDataUpdate {
                     "where exists(select 1 from " + increTable + " c where c.name = b.name)";
 
             //更新电话
-            sqls[22] = "update " + tableName + " a\n" +
+            sqls[23] = "update " + tableName + " a\n" +
                     "set a.tel=(select b.phones\n" +
                     "           from " + increTable + " b\n" +
                     "           where b.name = a.name\n" +
@@ -341,7 +341,7 @@ public class IncreDataUpdate {
                     "where exists(SELECT 1 FROM " + increTable + " b WHERE a.`name` = b.`name`)";
 
             //更新邮箱
-            sqls[23] = "update " + tableName + " a\n" +
+            sqls[24] = "update " + tableName + " a\n" +
                     "set a.email=(select b.emails\n" +
                     "             from " + increTable + " b\n" +
                     "             where b.name = a.name\n" +
@@ -350,7 +350,7 @@ public class IncreDataUpdate {
                     "where exists(SELECT 1 FROM " + increTable + " b WHERE a.`name` = b.`name`)";
 
             //更新经营范围
-            sqls[24] = "update " + tableName + " a\n" +
+            sqls[25] = "update " + tableName + " a\n" +
                     "set a.scope=(select b.business_scope\n" +
                     "             from " + increTable + " b\n" +
                     "             where b.name = a.name\n" +
@@ -360,7 +360,7 @@ public class IncreDataUpdate {
 
             //#更新法人名称(需要从其他表获得名称)---------------------------------------------
             //#legal_entity_type为1或3,legal_entity_id关联human_name的hid
-            sqls[25] = "update " + tableName + " b\n" +
+            sqls[26] = "update " + tableName + " b\n" +
                     "set b.opername=(select a.name\n" +
                     "                from human_name a\n" +
                     "                         left join " + increTable + " c\n" +
@@ -370,7 +370,7 @@ public class IncreDataUpdate {
                     "where exists(select 1 from " + increTable + " c where c.`name` = b.`name`)";
 
             //company_tyc的legal_entity_type为2,legal_entity_id关联company_tyc的cid-------------------------
-            sqls[24] = "update " + tableName + " b\n" +
+            sqls[27] = "update " + tableName + " b\n" +
                     "set b.opername=(select a.name\n" +
                     "                from " + increTable + " a\n" +
                     "                         left join " + increTable + " c\n" +

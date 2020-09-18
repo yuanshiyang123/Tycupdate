@@ -1,4 +1,4 @@
-package com.tyc.update.mapper.utils;
+package com.tyc.update.utils;
 
 /**
  * Base64 工具类

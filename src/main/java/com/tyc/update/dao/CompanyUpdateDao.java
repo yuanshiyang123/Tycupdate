@@ -1,4 +1,4 @@
-package com.tyc.update.mapper.dao;
+package com.tyc.update.dao;
 
 import com.tyc.update.entity.CompanyUpdate;
 import com.tyc.update.entity.CompanyUpdateExample;

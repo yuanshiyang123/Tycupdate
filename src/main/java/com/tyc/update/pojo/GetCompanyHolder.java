@@ -1,4 +1,4 @@
-package com.tyc.update.mapper.pojo;
+package com.tyc.update.pojo;
 
 import com.google.gson.annotations.SerializedName;
 

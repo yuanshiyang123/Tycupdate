@@ -1,14 +1,20 @@
-package com.tyc.update.mapper.pojo;
+package com.tyc.update.pojo;
 
 import com.google.gson.annotations.SerializedName;
 
-public class GetCompanyStaff {
-    @SerializedName("cid")
-    private long cid;
+/**
+ * @Auther: yuanshiyang
+ * @Date: 2020/8/20 18:01
+ * @Description:
+ */
+public class GetHumanName {
+    private long id;
     @SerializedName("hid")
     private long hid;
-    @SerializedName("staff_type")
-    private String staff_type;
+    @SerializedName("name")
+    private String name;
+    @SerializedName("type")
+    private int type;
     @SerializedName("create_time")
     private String create_time;
     @SerializedName("update_time")
@@ -19,10 +25,14 @@ public class GetCompanyStaff {
     private String updateFields;
     private String batch;
 
-    public GetCompanyStaff(long cid, long hid, String staff_type, String create_time, String update_time, int deleted, String operation_type, String updateFields, String batch) {
-        this.cid = cid;
+    public GetHumanName() {
+    }
+
+    public GetHumanName(long id, long hid, String name, int type, String create_time, String update_time, int deleted, String operation_type, String updateFields, String batch) {
+        this.id = id;
         this.hid = hid;
-        this.staff_type = staff_type;
+        this.name = name;
+        this.type = type;
         this.create_time = create_time;
         this.update_time = update_time;
         this.deleted = deleted;
@@ -31,12 +41,12 @@ public class GetCompanyStaff {
         this.batch = batch;
     }
 
-    public long getCid() {
-        return cid;
+    public long getId() {
+        return id;
     }
 
-    public void setCid(long cid) {
-        this.cid = cid;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public long getHid() {
@@ -47,12 +57,20 @@ public class GetCompanyStaff {
         this.hid = hid;
     }
 
-    public String getStaff_type() {
-        return staff_type;
+    public String getName() {
+        return name;
     }
 
-    public void setStaff_type(String staff_type) {
-        this.staff_type = staff_type;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
     }
 
     public String getCreate_time() {
@@ -105,14 +123,15 @@ public class GetCompanyStaff {
 
     @Override
     public String toString() {
-        return "GetCompanyStaff{" +
-                "cid=" + cid +
+        return "GetHumanName{" +
+                "id=" + id +
                 ", hid=" + hid +
-                ", staff_type='" + staff_type + '\'' +
+                ", name='" + name + '\'' +
+                ", type=" + type +
                 ", create_time='" + create_time + '\'' +
                 ", update_time='" + update_time + '\'' +
                 ", deleted=" + deleted +
-                ", type='" + operation_type + '\'' +
+                ", hunman_name_type='" + operation_type + '\'' +
                 ", updateFields='" + updateFields + '\'' +
                 ", batch='" + batch + '\'' +
                 '}';

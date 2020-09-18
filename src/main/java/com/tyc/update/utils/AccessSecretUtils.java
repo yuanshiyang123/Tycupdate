@@ -1,4 +1,4 @@
-package com.tyc.update.mapper.utils;
+package com.tyc.update.utils;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;

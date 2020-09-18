@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2017 Baidu, Inc. All Rights Reserved.
  */
-package com.tyc.update.mapper.utils;
+package com.tyc.update.utils;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

@@ -1,4 +1,4 @@
-package com.tyc.update.mapper.service;
+package com.tyc.update.service;
 
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.http.HttpUtil;

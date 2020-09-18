@@ -1,4 +1,4 @@
-package com.tyc.update.mapper;
+package com.tyc.update;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
